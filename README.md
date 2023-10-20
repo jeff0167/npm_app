@@ -1,3 +1,8 @@
+# Small project for simple npm commands
+
+Copy npm commands from the list for easy use
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
