@@ -9,6 +9,7 @@ function App() {
   const [commands, setCommands] = useState([]);
   const [_command, setCommand] = useState("");
   const [_tag, setTag] = useState("");
+  const [filter, setFilter] = useState("");
 
   const commandsCollectionRef = collection(db, "commands");
 
@@ -38,16 +39,20 @@ function App() {
       getCommands();
   }
 
-  const commandList = commands.map((command, id) =>
-    <Command Command={command.command} key={id} PropsButton={<button className='Button' onClick={()=> deleteCommand(command.id)}>Delete</button>}></Command>
+  // just need to also be able to search by Tag, but by command is alright also, would want to potentially just categorize all the items like a toggle
+  // then you would navigate to the correct section for the information your searching for
+  const commandList = commands.filter(command => command.command.includes(filter) || filter === '').map((command, id) =>
+    <Command Command={command.command} key={id} PropsButton={<button className='Button' onClick={()=> deleteCommand(command.id)}>X</button>}></Command>
   );
 
   return (
     <div className="App">
       <header className="App-header">
         <div className='AddCommand'>
-          <input placeholder='command' onChange={(e)=> setCommand(e.target.value)} value={_command} autoFocus></input>
-          <input placeholder='tag' onChange={(e)=> setTag(e.target.value)} value={_tag}></input>
+          <input className='Search' placeholder='Search' onChange={(e)=> setFilter(e.target.value)} value={filter} autoFocus></input>
+          
+          <input placeholder='Command' onChange={(e)=> setCommand(e.target.value)} value={_command}></input>
+          <input placeholder='Tag' onChange={(e)=> setTag(e.target.value)} value={_tag}></input>
           <button className='Button' onClick={()=> addCommand()}>Add npm command</button>
         </div>
         <div className='CommandList'>

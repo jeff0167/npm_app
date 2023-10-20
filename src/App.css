@@ -14,7 +14,7 @@
 
 .AddCommand{
   background-color: #000000;
-  padding: 5%;
+  padding-top: 5%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,12 +28,11 @@
 
 .Command{
   margin: 5px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
   border-radius: 10px;
-  border: 1px solid rgb(255, 166, 0);
-  font-size: large !important;
-  font-size: medium !important;
+  border: 1px solid rgba(255, 166, 0, 0.274);
+  font-size: 8px;
   cursor: pointer;
 }
 
@@ -46,11 +45,15 @@
   color: rgb(255, 166, 0);
   background: rgba(0, 0, 0, 0.532);
   border-radius: 4px;
-  border: 1px solid rgb(255, 166, 0) !important;
+  border: 1px solid rgba(255, 166, 0, 0.374) !important;
   padding: .5rem;
   margin: .5rem;
   border: none; 
   cursor: pointer;
+}
+
+.Search{
+  margin-bottom: 15px;
 }
 
 .AddCommand input{
